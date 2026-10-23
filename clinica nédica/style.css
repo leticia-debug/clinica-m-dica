@@ -1,0 +1,185 @@
+/* Variáveis de Cores - Padrão Hospitalar / Clínico */
+:root {
+    --primary-color: #0077b6; /* Azul Clínico Firme */
+    --secondary-color: #00b4d8; /* Ciano/Verde-água Suave */
+    --bg-light: #f0f8ff; /* Azul bem clarinho para fundo */
+    --panel-color: #ffffff;
+    --text-dark: #1d2d44; /* Azul escuro para alto contraste de texto */
+    --border-color: #caf0f8;
+}
+
+/* Reset de Elementos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+section {
+    padding: 60px 5%;
+}
+
+h2 {
+    font-size: 2rem;
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* Cabeçalho e Menu */
+.header {
+    position: fixed;
+    top: 0; left: 0; width: 100%;
+    background-color: var(--panel-color);
+    border-bottom: 2px solid var(--border-color);
+    padding: 15px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: var(--text-dark);
+    text-decoration: none;
+}
+.logo span { color: var(--primary-color); }
+
+.navbar ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+.navbar a {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: 600;
+    transition: color 0.2s;
+}
+.navbar a:hover { color: var(--primary-color); }
+
+/* Banner Inicial (Hero) */
+.hero {
+    background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%);
+    padding: 140px 5% 80px 5%;
+    text-align: center;
+}
+.hero h1 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+.hero p {
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin: 0 auto 30px auto;
+}
+.btn-primary {
+    display: inline-block;
+    padding: 12px 35px;
+    background-color: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 25px;
+    box-shadow: 0 4px 6px rgba(0, 119, 182, 0.2);
+    transition: background 0.2s;
+}
+.btn-primary:hover { background-color: var(--secondary-color); }
+
+/* Especialidades (CSS Grid Obrigatório) */
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr; /* 1 coluna no celular */
+    gap: 20px;
+}
+.card {
+    background-color: var(--panel-color);
+    padding: 25px;
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+}
+.card .icon { font-size: 2.5rem; margin-bottom: 10px; }
+.card h3 { color: var(--primary-color); margin-bottom: 10px; }
+
+/* Sobre Nós (Flexbox Obrigatório) */
+.about-flex {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--panel-color);
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Agendamento (Formulário) */
+.form-booking {
+    background-color: var(--panel-color);
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    max-width: 500px;
+    margin: 0 auto;
+}
+.form-group {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+}
+.form-group label { margin-bottom: 5px; font-weight: 600; }
+.form-group input, .form-group select {
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+}
+.btn-submit {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.btn-submit:hover { background-color: var(--secondary-color); }
+
+/* Rodapé */
+.footer {
+    background-color: var(--panel-color);
+    padding: 20px;
+    text-align: center;
+    border-top: 2px solid var(--border-color);
+    font-size: 0.9rem;
+}
+
+/* ── RESPONSIVIDADE E ADAPTAÇÃO DE TELAS (Media Queries) ── */
+@media (min-width: 768px) {
+    .grid-container {
+        grid-template-columns: repeat(2, 1fr); /* 2 colunas no tablet */
+    }
+    .hero h1 { font-size: 3rem; }
+}
+
+@media (min-width: 1024px) {
+    .grid-container {
+        grid-template-columns: repeat(4, 1fr); /* 4 colunas no computador */
+    }
+    section { padding: 80px 10%; }
+}
